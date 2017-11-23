@@ -2,5 +2,5 @@
 filename=$1
 comment=$2
 git add $filename
-git commit -m $comment
-git push -f Font_sim master
+git commit -a -m $comment
+git push -u Font_sim master
