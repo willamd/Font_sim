@@ -1,4 +1,6 @@
 #!/bin/bash
-git add *
-git commit -m "update files"
+filename=$1
+comment=$2
+git add $filename
+git commit -m $comment
 git push -u Font_sim master
