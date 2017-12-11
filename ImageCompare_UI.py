@@ -11,11 +11,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1055, 511)
+        MainWindow.resize(1100, 520)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox.setGeometry(QtCore.QRect(10, 320, 571, 131))
+        self.groupBox.setGeometry(QtCore.QRect(10, 320, 570, 130))
         self.groupBox.setObjectName("groupBox")
         self.Compare_btn = QtWidgets.QPushButton(self.groupBox)
         self.Compare_btn.setGeometry(QtCore.QRect(0, 30, 99, 27))
@@ -94,12 +94,9 @@ class Ui_MainWindow(object):
         self.tar_img_lab.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.tar_img_lab.setAlignment(QtCore.Qt.AlignCenter)
         self.tar_img_lab.setObjectName("tar_img_lab")
-        self.widget = QtWidgets.QWidget(self.centralwidget)
-        self.widget.setGeometry(QtCore.QRect(700, 170, 120, 80))
-        self.widget.setObjectName("widget")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1055, 31))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1100, 31))
         self.menubar.setObjectName("menubar")
         self.menuImage_Comparasion = QtWidgets.QMenu(self.menubar)
         self.menuImage_Comparasion.setObjectName("menuImage_Comparasion")
@@ -121,7 +118,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Img Comp"))
         self.groupBox.setTitle(_translate("MainWindow", "Operation"))
         self.Compare_btn.setText(_translate("MainWindow", "Compare"))
         self.a_hash_lab.setText(_translate("MainWindow", "A-Hash:"))

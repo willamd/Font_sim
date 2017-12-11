@@ -103,7 +103,7 @@ class Imgcomp_ui(Ui_MainWindow,QMainWindow):#从自动生成的界面类继承
         sim = sum( sum(1 - (0 if l == r else float(abs(l - r)) / max(l, r)) for l, r in zip(lp.histogram(), rp.histogram())) / len(lp.histogram()) for lp,rp in zip(li,ri) )/size[0]
         return float("%.4f"%sim)
 
-    def image_comp_display(self,src_img,tar_img,size=(128,128)):
+    def image_comp_display(self,src_img,tar_img,size=(160,160)):
         if src_img is not None and tar_img is not None:
             src_img_shape=np.asarray(src_img).shape[:2]
             tar_img_shape=np.asarray(tar_img).shape[:2]
@@ -123,19 +123,23 @@ class Imgcomp_ui(Ui_MainWindow,QMainWindow):#从自动生成的界面类继承
             # If src[i,j]!=0 and tar[i,j]!=0 then append the i,j to comp_result[i,j]=1
             # else if src[i,j]!=0 and tar[i,j]=0 then append to comp_result[i,j]=2
             # else if src[i,j]=0 and tar[i,j]!=0 then append to comp_result[i,j]=3.
-            comp_result = np.zeros(size)
-            W, H = gray_src.shape
+            H, W = gray_src.shape
+            comp_result = np.zeros((W,H))
+            # print(W,H)resize 按照W,H,np是高宽
             # np.set_printoptions(threshold=1e6)
             # print(gray_tar)
+            # print(H,W
             for i in range(H):
                 for j in range(W):
-                    if gray_src[i, j] != 0 and gray_tar[i, j] != 0:
+                    # print(i,j)
+                    if gray_src[i, j] != 0 and gray_tar[i, j] != 0 and gray_src[i, j]>=127 and gray_tar[i, j]>=127:
                         comp_result[i, j] = 1
                     elif gray_src[i, j] != 0 and gray_tar[i, j] == 0:
                         comp_result[i, j] = 2
-                    elif gray_src[i, j] == 0 and gray_tar[i, j] != 0:
+                    elif gray_src[i, j] == 0 and gray_tar[i, j] !=0:
                         comp_result[i, j] = 3
                     else:
+                        # print(i,j)
                         comp_result[i, j] = 0
             cover_rate_src2tar=np.sum(comp_result == 1) / (np.sum(comp_result == 1) + np.sum(comp_result == 2))
             # print(comp_result)

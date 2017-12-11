@@ -1,6 +1,6 @@
 import cv2
 import  numpy as np
-img=cv2.imread('2.jpg')
+img=cv2.imread('a.jpg')
 img_back=cv2.imread('23.jpg')
 
 rows,cols,channels = img.shape
@@ -14,7 +14,7 @@ upper_red=np.array([115,125,125])
 mask = cv2.inRange(hsv, lower_red, upper_red)
 
 # 腐蚀膨胀
-# erode=cv2.erode(mask,None,iterations=1)
+erode=cv2.erode(mask,None,iterations=1)
 # cv2.imshow('erode',erode)
 #膨胀
 dilate=cv2.dilate(mask,None,iterations=5)
