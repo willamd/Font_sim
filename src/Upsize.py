@@ -8,7 +8,7 @@ class Upsize(object):
         self.src_shape=imge_data.shape
         self.channels =1 if len(self.src_shape)>2 else 0
 
-    def resize(self):
+    def upresize(self):
         #flag to determine if the target shape is large than orignal shape
         flag=0
         if(self.channels):
@@ -39,17 +39,3 @@ class Upsize(object):
         else:
             print("Target shape should be larger than original")
             return 0
-
-
-
-
-img=cv2.imread("./replace_bg/3.jpg")
-rows,cols,channels = img.shape
-np.set_printoptions(threshold=1e6)
-
-src_img = np.asarray(cv2.cvtColor(img,cv2.COLOR_RGBA2GRAY))
-
-img=Upsize(src_img,(512,512)).resize()
-import matplotlib.pyplot as plt
-plt.imshow(img)
-plt.show()
